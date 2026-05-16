@@ -14,9 +14,20 @@ export function knightMoves (start, end) {
         front++;
 
         if(arrayEquals(current.position, end)) {
-            console.log(`You made it in ${current.path.length - 1} moves!  Here's your path:`)
-            for(let item of current.path) console.log(item);
-            return;
+            if(current.path.length === 1) {
+                console.log(`You didn't make any moves!`)
+                return;
+            }
+            else if(current.path.length === 2) {
+                console.log(`You made it in ${current.path.length - 1} move!  Here's your path:`)
+                for(let item of current.path) console.log(item);
+                return;
+            }
+            else {
+                console.log(`You made it in ${current.path.length - 1} moves!  Here's your path:`)
+                for(let item of current.path) console.log(item);
+                return;
+            }
         }
 
         let neighbors = getValidMoves(current.position);
